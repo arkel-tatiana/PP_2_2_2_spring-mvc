@@ -1,20 +1,12 @@
-package web.service;
+package web.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import web.dao.CarDao;
+import org.springframework.stereotype.Repository;
 import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
-@Service
-public class CarServiceImpl implements CarService{
-    private CarDao carDao;
-    @Autowired
-    public CarServiceImpl(CarDao carDao) {
-        this.carDao = carDao;
-    }
-
+@Repository
+public class CarDaoImpl implements CarDao{
     public List<Car> getCar() {
         List<Car> carList = new ArrayList<>(5);
         carList.add(new Car("BMW", 192121L, "RED"));
@@ -23,5 +15,5 @@ public class CarServiceImpl implements CarService{
         carList.add(new Car("BMW", 7652330L, "GREEN"));
         carList.add(new Car("BMW", 4567781L, "BLACK"));
         return carList;
-    };
+    }
 }
